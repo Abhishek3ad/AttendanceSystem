@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Attendance</title>
+</head>
+<body>
+    <h1>Claim Attendance</h1>
+    <form action="/claim" method="post">
+        <label for="student_code">Enter Attendance Code:</label>
+        <input type="text" id="student_code" name="student_code" required>
+        <button type="submit">Claim</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <a href="/">Go Back</a>
+</body>
+</html>

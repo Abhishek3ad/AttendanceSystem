@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+</head>
+<body>
+    <h1>Generate Attendance Codes</h1>
+    <form action="/generate" method="post">
+        <label for="num_students">Number of Students Present:</label>
+        <input type="number" id="num_students" name="num_students" required>
+        <button type="submit">Generate Codes</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <h2>Claim Attendance</h2>
+    <a href="/claim">Claim Attendance Here</a>
+</body>
+</html>
